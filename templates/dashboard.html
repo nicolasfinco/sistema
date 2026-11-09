@@ -1,0 +1,142 @@
+{% extends 'template.html' %}
+
+{% block title %}Dashboard de {{ usuario.nome }}{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex column" style="margin-bottom: 100px;">
+
+    <div class="subtitulo" style="margin-bottom: 50px;">
+        Olá, <span style="font-weight: 700;">{{ usuario.nome }}</span>!
+    </div>
+
+    <div class="reminders outline border-radius d-flex add-gap">
+
+        <!-- ÁREA DOS PETS -->
+        <div class="reminder outline">
+
+            <div>
+                <span class="destaque">Pets cadastrados</span>
+                {{ qtd }}
+            </div>
+
+            <a href="{{ url_for('cadastrar_pet') }}">
+                + Adicionar pet
+            </a>
+
+            {% if pets %}
+            <div class="pets">
+
+                {% for pet in pets %}
+                <div class="pet border-radius">
+
+                    <div class="d-flex between">
+
+                        <a href="{{ url_for('editar_pet', id=pet.id) }}">
+                            Editar informações
+                        </a>
+
+                        <form
+                            action="{{ url_for('remover_pet', id=pet.id) }}"
+                            method="POST"
+                            onsubmit="return confirm('Tem certeza que deseja remover este pet?');"
+                        >
+                            <button type="submit">Remover</button>
+                        </form>
+
+                    </div>
+
+                    <p class="destaque" style="color: var(--cor-preto);">
+                        {{ pet.nome }}
+                    </p>
+
+                    <p><strong>Espécie:</strong> {{ pet.especie }}</p>
+                    <p><strong>Raça:</strong> {{ pet.raca or 'Não informada' }}</p>
+                    <p><strong>Tutor:</strong> {{ pet.nome_tutor }}</p>
+                    <p><strong>Sexo:</strong> {{ pet.sexo or 'Não informado' }}</p>
+
+                    <p>
+                        <strong>Data de nascimento:</strong>
+                        {{ pet.data_nascimento.strftime('%d/%m/%Y') if pet.data_nascimento else 'Não informada' }}
+                    </p>
+
+                    <p>
+                        <strong>Observações:</strong>
+                        {{ pet.observacoes or 'Nenhuma observação' }}
+                    </p>
+
+                </div>
+                {% endfor %}
+
+            </div>
+            {% else %}
+                <div>Não há nenhum pet registrado.</div>
+            {% endif %}
+
+        </div>
+
+
+        <!-- ÁREA DAS CONSULTAS -->
+        <div class="reminder outline">
+
+            <div class="destaque">Consultas</div>
+
+            <a href="{{ url_for('agendar') }}">
+                + Marcar consulta
+            </a>
+
+            {% if consultas %}
+            <div class="pets">
+
+                {% for consulta in consultas %}
+                <div class="pet border-radius">
+
+                    <p>
+                        <strong>{{ consulta.tipo }}</strong>
+                    </p>
+
+                    <p>
+                        <strong>Pet:</strong> {{ consulta.nome_pet }}
+                    </p>
+
+                    <p>
+                        <strong>Data:</strong>
+                        {{ consulta.datahora.strftime('%d/%m/%Y às %H:%M') }}
+                    </p>
+
+                    <p>
+                        <strong>Descrição:</strong>
+                        {{ consulta.desc or 'Nenhuma descrição' }}
+                    </p>
+
+                    <div class="d-flex between">
+
+                        <a href="{{ url_for('editar_consulta', id=consulta.id) }}">
+                            Editar
+                        </a>
+
+                        <form
+                            action="{{ url_for('desmarcar', id=consulta.id) }}"
+                            method="POST"
+                            onsubmit="return confirm('Deseja realmente desmarcar esta consulta?');"
+                        >
+                            <button type="submit">Desmarcar</button>
+                        </form>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+            {% else %}
+                <div>Não há nenhuma consulta marcada.</div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

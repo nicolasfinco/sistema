@@ -1,0 +1,66 @@
+{% extends 'template.html' %}
+
+{% block title %}Editar consulta{% endblock %}
+
+{% block content %}
+<div class="container d-flex between align" style="margin-bottom: 50px;">
+
+    <section>
+        <h2 class="titulo">Altere a consulta aqui</h2>
+        <p>Atualize os dados do agendamento.</p>
+    </section>
+
+    <section class="container formulario section-padding" style="width: 50%;">
+        <form class="d-flex column" method="POST">
+
+            <label for="pet_agendar">Pet</label>
+            <select name="pet_agendar" id="pet_agendar" required>
+                {% for pet in pets %}
+                <option value="{{ pet.id }}"
+                    {% if consulta.pet_agendar == pet.id %}selected{% endif %}>
+                    {{ pet.nome }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label for="tipo">Serviço</label>
+            <select name="tipo" id="tipo" required>
+                {% for opcao in opcoes %}
+                <option value="{{ opcao }}"
+                    {% if consulta.tipo == opcao %}selected{% endif %}>
+                    {{ opcao }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label for="datahora">Data e hora</label>
+            <input
+                type="datetime-local"
+                id="datahora"
+                name="datahora"
+                value="{{ consulta.datahora }}"
+                required
+            >
+
+            <label for="desc">Descrição</label>
+            <input
+                type="text"
+                name="desc"
+                id="desc"
+                value="{{ consulta.desc }}"
+            >
+
+            <button class="btn btn-secundario" type="submit">
+                Salvar alterações
+            </button>
+
+            <a class="btn btn-negativo"
+               style="color: var(--cor-branco);"
+               href="{{ url_for('dashboard') }}">
+                Voltar
+            </a>
+
+        </form>
+    </section>
+</div>
+{% endblock %}

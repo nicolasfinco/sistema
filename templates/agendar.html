@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+
+{% block title %}Agendar serviço{% endblock %}
+
+{% block content %}
+<div class="container d-flex between align" style="margin-bottom: 50px;">
+    <section>
+        <h2 class="titulo">Agende conosco</h2>
+        <p> Agende aqui conosco <br>
+            Por favor não colocar<br>
+            uma data antes da sua atual<br>
+        </p>
+    </section>
+
+    <section class="container formulario section-padding" style="width: 50%;">
+        <form class="d-flex column" action="" method="POST">
+        <label for="pet_agendar">Escolha um pet para realizar um agendamento:</label>
+        <select name="pet_agendar" id="pet_agendar">
+            {% for pet in pets %}
+            <option value="{{pet.id}}">{{pet.nome}}</option>
+            {% endfor %}
+        </select>
+        <label for="tipo">Em que podemos ajudar:</label>
+        <select name="tipo" id="tipo">
+            {% if opcoes %}
+            {% for opcao in opcoes %}
+            <option value="{{opcao}}">{{opcao}}</option>
+            {% endfor %}
+            {% endif %}
+        </select>
+        <label for="datahora">Escolha a data e hora:</label>
+        <input type="datetime-local" id="datahora" name="datahora" required>
+        <label for="desc">Descreva suas necessidades:</label>
+        <input type="text" name="desc" id="desc">
+        <input class="btn btn-secundario" type="submit" value="Enviar">
+        <a class="btn btn-primary" style="color: var(--cor-branco);" href="/dashboard">Voltar</a>
+    </form>
+    </section>
+</div>
+{% endblock %}

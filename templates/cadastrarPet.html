@@ -1,0 +1,60 @@
+{% extends 'template.html' %}
+
+{% block title %}Cadastro de pet{% endblock %}
+
+{% block content %}
+<div class="container d-flex align" style="min-height: 600px;">
+    <section class="container">
+        <h2 class="titulo">Cadastrar pet</h2>
+        <p>Preencha os dados do animal.</p>
+    </section>
+
+    <section class="container formulario section-padding">
+        <form class="d-flex column" method="POST">
+
+            <label>Nome do pet</label>
+            <input type="text" name="nome" required>
+
+            <label>Tutor responsável</label>
+            <select name="tutor" required>
+                <option value="">Selecione um tutor</option>
+                {% for tutor in tutores %}
+                <option value="{{ tutor[0] }}">{{ tutor[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Espécie</label>
+            <select name="especie" required>
+                <option value="">Selecione</option>
+                {% for especie in especies %}
+                <option value="{{ especie }}">{{ especie }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Raça</label>
+            <input type="text" name="raca" required>
+
+            <label>Sexo</label>
+            <select name="sexo" required>
+                <option value="">Selecione</option>
+                <option value="MACHO">Macho</option>
+                <option value="FEMEA">Fêmea</option>
+            </select>
+
+            <label>Data de nascimento</label>
+            <input type="date" name="data_nascimento" required>
+
+            <label>Observações</label>
+            <textarea name="observacoes"></textarea>
+
+            <button class="btn btn-primary" type="submit">
+                Cadastrar
+            </button>
+
+            <a class="btn btn-negativo" href="{{ url_for('dashboard') }}">
+                Cancelar
+            </a>
+        </form>
+    </section>
+</div>
+{% endblock %}

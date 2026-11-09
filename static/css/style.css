@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --cor-preto: #000;
+    --cor-branco: #fff;
+    --cor-texto: #7F7F7F;
+    --cor-principal: #268CB0;
+    --cor-secundaria: #E6F0F8;
+    --cor-rodape: #201C1C;
+    --cor-erro-primary: #ff4800;
+    --cor-erro-segundo: #ff4800d5;
+    --cor-apagar: #90A4AE;
+}
+
+header {
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    background-color: var(--cor-branco);
+    padding: 10px 0px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.153);
+}
+
+p {
+    color: var(--cor-texto);
+}
+
+main {
+    /* padding-top: 100px; */
+    padding: 100px 0px;
+    padding-bottom: 0;
+}
+
+.add-gap {
+    gap: 20px;
+}
+
+.error {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ff260035;
+}
+
+.error p {
+    color: red;
+}
+
+.font-inter {
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.direction-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 50px;
+}
+
+.align {
+    align-items: center;
+}
+
+.between {
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.justify-center {
+    justify-content: center;
+    gap: 20px;
+}
+
+.flexbox {
+    display: flexbox;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.subtitulo {
+    font-weight: 500;
+    font-size: 2.25em;
+}
+
+.destaque {
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+.outline {
+    outline: 1px solid var(--cor-rodape);
+}
+
+.border-radius {
+    border-radius: 10px;
+}
+
+header nav a {
+    color: var(--cor-texto);
+    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.formulario a {
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.formulario a:hover {
+    color: var(--cor-rodape);
+}
+
+header nav a:hover {
+    color: var(--cor-principal);
+}
+
+.section-padding {
+    padding: 50px 0px;
+}
+
+.text-margin {
+    margin-bottom: 20px;
+}
+
+/* configurando os botoes padrao do site */
+.btn {
+    text-align: center;
+    font-size: 1.0em;
+    font-weight: 600;
+    outline: 1px solid var(--cor-principal);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-primary {
+    background-color: var(--cor-principal) !important;
+    color: var(--cor-branco) !important;
+}
+
+.btn-primary:hover {
+    background-color: transparent !important;
+    color: var(--cor-principal) !important;
+}
+
+.btn-secundario {
+    background-color: transparent !important;
+    color: var(--cor-principal) !important;
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-principal) !important;
+    color: var(--cor-branco) !important;
+}
+
+.btn-negativo {
+    outline: 1px solid var(--cor-apagar);
+    background-color: var(--cor-apagar) !important;
+    color: var(--cor-branco) !important;
+}
+
+.btn-negativo:hover {
+    background-color: transparent !important;
+    color: var(--cor-apagar) !important;
+}
+
+.titulo {
+    color: var(--cor-principal);
+    font-size: 2.25em;
+}
+
+.caixa-texto {
+    width: 60%;
+}
+
+.caixa-texto h2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.servicos div {
+    width: 255px;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: 0;
+    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.servicos div:hover {
+    translate: 10px 10px;
+}
+
+.tosa {
+    background-image: url('../img/tosa.png');
+}
+
+.banho {
+    background-image: url('../img/banho.png');
+}
+
+.vacina {
+    background-image: url('../img/vacinacao.png');
+}
+
+.consultas {
+    background-image: url('../img/consultas.png');
+}
+
+.exames {
+    background-image: url('../img/exames.png');
+}
+
+.odonto {
+    background-image: url('../img/odonto.png');
+}
+
+.fisio {
+    background-image: url('../img/fisioterapia.png');
+}
+
+.atendimento-dom {
+    background-image: url('../img/atendimento.png');
+}
+
+.cta-container {
+    background-color: var(--cor-secundaria);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    background-color: var(--cor-rodape);
+}
+
+footer div {
+    margin: 20px 0px;
+}
+
+footer nav a, footer p {
+    color: var(--cor-branco);
+}
+
+footer nav a {
+    font-weight: 600;
+    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+footer nav a:hover {
+    color: var(--cor-principal);
+}
+
+.formulario form {
+    gap: 10px;
+}
+
+.formulario form input, .formulario form select {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--cor-secundaria);
+    border: none;
+}
+
+.social-nav a img {
+    width: 40px;
+}
+
+.invert {
+    filter: invert();
+}
+
+.reminder {
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.reminders {
+    padding: 20px;
+    gap: 20px;
+}
+
+.reminders a {
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+.pets {
+    gap: 30px;
+}
+
+.pet {
+    margin: 10px 0px 0px 0px;
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.pet:hover {
+    scale: 1.05;
+}
+
+.mensagens{
+    color: var(--cor-preto);
+    border-radius: 10px;
+    text-align: center;
+    list-style: none;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.flash-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+}
+
+.bottom-border {
+    border:none
+}

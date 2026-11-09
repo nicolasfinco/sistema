@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block title %}Cadastrar tutor{% endblock %}
+
+{% block content %}
+<h1>Cadastrar tutor</h1>
+
+<form method="POST">
+    <label>Nome:</label>
+    <input type="text" name="nome" required>
+
+    <label>CPF:</label>
+    <input type="text" name="cpf" required>
+
+    <label>Telefone:</label>
+    <input type="text" name="tel" required>
+
+    <label>E-mail:</label>
+    <input type="email" name="email">
+
+    <label>Endereço:</label>
+    <input type="text" name="endereco">
+
+    <button type="submit">Cadastrar tutor</button>
+</form>
+
+<a href="{{ url_for('tutores') }}">Voltar</a>
+{% endblock %}

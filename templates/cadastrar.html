@@ -1,0 +1,64 @@
+
+{% extends 'template.html' %}
+
+{% block title %}Cadastrar Tutor{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex between align"
+     style="margin-bottom: 50px;">
+
+    <section>
+        <h2 class="titulo">Cadastro de Tutor</h2>
+        <p>
+            Cadastre os responsáveis
+            pelos animais da clínica.
+        </p>
+    </section>
+
+    <section class="container formulario section-padding"
+             style="width: 50%;">
+
+        <form class="d-flex column"
+              action="{{ url_for('cadastrar') }}"
+              method="POST">
+
+            <input type="text"
+                   placeholder="Nome completo"
+                   name="nome"
+                   required>
+
+            <input type="text"
+                   placeholder="CPF"
+                   name="cpf"
+                   maxlength="14"
+                   required>
+
+            <input type="tel"
+                   placeholder="Telefone"
+                   name="tel"
+                   maxlength="20"
+                   required>
+
+            <input type="email"
+                   placeholder="E-mail"
+                   name="email">
+
+            <input type="text"
+                   placeholder="Endereço"
+                   name="endereco"
+                   maxlength="200">
+
+            <button class="btn btn-secundario"
+                    type="submit"
+                    style="border: none;">
+                Cadastrar Tutor
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block title %}Editando {{ usuario.nome }}{% endblock %}
+
+{% block content %}
+<div class="container d-flex align" style="height: 600px;">
+    <section class="container">
+        <h2 class="titulo">Editando {{usuario.nome}}</h2>
+        <p> Atualize suas informações de cadastro</p>
+    </section>
+
+    <section class="container formulario section-padding">
+        <form class="d-flex column" action="" method="POST">
+            <!-- Formulário de edição (nome de usuario e senha) -->
+            <input type="text" placeholder="Nome" name="nome" id="" value="{{usuario.nome}}" required>
+            <input type="email" placeholder="Email" name="email" value="{{usuario.email}}" required>
+
+            <input type="texy" placeholder="CPF" name="cpf" value="{{usuario.cpf}}"  minlength="11" maxlength="11" pattern="\d{11}" required>
+            <input type="tel" placeholder="Telefone" name="tel"value="{{usuario.tel}}" maxlength="11"  required>
+            <input type="password" placeholder="Senha" name="senha"value="{{usuario.senha}}"  required>
+
+            <!-- Enviar novas informações do usuario para o banco de dados -->
+            <button class="btn btn-primary" type="submit" style="border: none;">Salvar alterações</button>
+            <a class="btn btn-negativo" style="color: var(--cor-branco);" href="/dashboard">Cancelar</a>
+        </form>
+    </section>
+</div>
+{% endblock %}

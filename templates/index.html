@@ -1,0 +1,53 @@
+{% extends 'template.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="container d-flex">
+    <div>
+        <div class="caixa-texto">
+            <p class="destaque">Quem somos</p>
+            <h2 class="titulo">Conheça a VetAlfa Inovação em Gestão para Saúde de Alto Desempenho</h2>
+            <p style="font-size: 1.25em;">Clínica Veterinária Completa para Cães e Gatos – Consultas, Vacinas, Cirurgias e Emergências</p>
+        </div>
+        <div class="d-flex" style="padding-top: 20px; gap: 20px;">
+            <a class="btn btn-primary font-inter" href="/login">Acessar</a>
+            <a class="btn btn-secundario font-inter" href="/cadastrar">Quero conhecer</a>
+        </div>
+    </div>
+    <img src="../static/img/cachorro.png" alt="Cachorro" style="width: 500px;">
+</section>
+<section id="sobre" class="container d-flex align section-padding">
+    <img src="../static/img/veterinariaGradiente.png" alt="Veterinaria cuidando de cachorro" style="width: 500px;">
+    <div style="width: 50%;">
+        <h2 class="titulo">Cuidamos do Seu Pet com Amor, Profissionalismo e Dedicação</h2>
+        <p>Na VetAlfa, seu pet é tratado como parte da nossa família. Com uma equipe de veterinários experientes, estrutura moderna e atendimento humanizado, oferecemos tudo o que seu cão ou gato precisa para viver com saúde e bem-estar.</p>
+    </div>
+</section>
+<section id="servicos" class="container d-flex align column section-padding">
+    <h2 class="titulo">O que oferecemos</h2>
+    <div class="servicos d-flex add-gap direction-row justify-center">
+        <div class="banho">
+        </div>
+        <div class="tosa">
+        </div>
+        <div class="vacina">
+        </div>
+        <div class="consultas">
+        </div>
+        <div class="exames">
+        </div>
+        <div class="odonto">
+        </div>
+        <div class="fisio">
+        </div>
+        <div class="atendimento-dom">
+        </div>
+    </div>
+</section>
+<section class="d-flex align column cta-container section-padding">
+    <h2 class="titulo">Agende uma consulta agora mesmo</h2>
+    <p class="text-margin">Seu pet merece o melhor cuidado. Clique no botão abaixo e faça parte da família VetAlfa</p>
+    <a class="btn btn-secundario" href="/cadastrar">Comece agora</a>
+</section>
+{% endblock %}

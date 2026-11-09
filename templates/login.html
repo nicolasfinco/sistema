@@ -1,0 +1,44 @@
+
+{% extends 'template.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container d-flex between align">
+    <section>
+        <h2 class="titulo">Bem-vindo ao VetAlfa</h2>
+        <p>
+            Sistema de gerenciamento veterinário.
+            <br>
+            Gerencie tutores, pets e agendamentos
+            <br>
+            em um só lugar!
+        </p>
+    </section>
+
+    <section class="formulario section-padding"
+             style="margin-bottom: 100px;">
+
+        <h2 class="titulo">Login do Administrador</h2>
+
+        <form class="d-flex between"
+              action="{{ url_for('login') }}"
+              method="POST">
+
+            <input name="email"
+                   type="email"
+                   placeholder="E-mail"
+                   required>
+
+            <input name="senha"
+                   type="password"
+                   placeholder="Insira sua senha"
+                   required>
+
+            <button class="btn btn-secundario" type="submit">
+                Entrar
+            </button>
+        </form>
+    </section>
+</div>
+{% endblock %}

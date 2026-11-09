@@ -1,0 +1,50 @@
+{% extends 'template.html' %}
+
+{% block title %}Tutores{% endblock %}
+
+{% block content %}
+<h1>Tutores cadastrados</h1>
+
+<a href="{{ url_for('cadastrar_tutor') }}">Cadastrar novo tutor</a>
+
+{% if tutores %}
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for tutor in tutores %}
+        <tr>
+            <td>{{ tutor[1] }}</td>
+            <td>{{ tutor[2] }}</td>
+            <td>{{ tutor[3] }}</td>
+            <td>{{ tutor[4] or '-' }}</td>
+            <td>{{ tutor[5] or '-' }}</td>
+            <td>
+                <a href="{{ url_for('editar_tutor', id=tutor[0]) }}">
+                    Editar
+                </a>
+
+                <form action="{{ url_for('remover_tutor', id=tutor[0]) }}"
+                      method="POST"
+                      onsubmit="return confirm('Deseja realmente excluir este tutor?');">
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum tutor cadastrado.</p>
+{% endif %}
+
+{% endblock %}

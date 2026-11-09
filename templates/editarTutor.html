@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block title %}Editar tutor{% endblock %}
+
+{% block content %}
+<h1>Editar tutor</h1>
+
+<form method="POST">
+    <label>Nome:</label>
+    <input type="text" name="nome" value="{{ tutor[1] }}" required>
+
+    <label>CPF:</label>
+    <input type="text" name="cpf" value="{{ tutor[2] }}" required>
+
+    <label>Telefone:</label>
+    <input type="text" name="tel" value="{{ tutor[3] }}" required>
+
+    <label>E-mail:</label>
+    <input type="email" name="email" value="{{ tutor[4] or '' }}">
+
+    <label>Endereço:</label>
+    <input type="text" name="endereco" value="{{ tutor[5] or '' }}">
+
+    <button type="submit">Salvar alterações</button>
+</form>
+
+<a href="{{ url_for('tutores') }}">Voltar</a>
+{% endblock %}

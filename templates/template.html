@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+       <div class="container d-flex align between">
+             <div class="d-flex align between">
+                <a href="/"><img class="logo" src="../static/img/logo.png" alt="Logo"></a>
+                <h1>VetAlfa</h1>
+            </div>
+            <div>
+                <nav class="d-flex between">
+                    <a href="/#sobre">Sobre</a>
+                    <a href="/#servicos">Serviços</a>
+                </nav>
+            </div>
+            
+            {% if usuario %}
+    <div>
+        <a class="btn btn-primary" href="{{ url_for('tutores') }}">
+            Tutores
+        </a>
+
+        <a class="btn btn-primary" href="{{ url_for('edcadastro') }}">
+    Editar {{ usuario.nome }}
+</a>
+
+        <a class="btn btn-secundario" href="{{ url_for('logout') }}">
+            Sair
+        </a>
+    </div>
+{% else %}
+    <a class="btn btn-primary" href="{{ url_for('login') }}">
+        Acessar
+    </a>
+{% endif %}
+       </div>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container">
+            {% for category, message in messages %}
+                <div class="flash-{{ category }}">
+                {{ message }}
+                <span class="close-btn" onclick="this.parentElement.remove()">×</span>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="container d-flex direction-row between">
+            <div>
+                <div>
+                    <p>VetAlfa</p>
+                    <nav style="list-style-type: none;" class="d-flex column">
+                        <a href="/#sobre">Quem somos</a>
+                        <a href="/#servicos">Serviços</a>
+                        <a href="/login">Acessar</a>
+                    </nav>
+                </div>
+                <div class="d-flex align between">
+                    <img class="logo invert" src="../static/img/logo.png" alt="logo">
+                    <p class="destaque">VetAlfa</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>Redes sociais</p>
+                    <div class="social-nav">
+                        <a href="https://instagram.com" target="_blank"><img src="../static/img/ig.png" alt="Instagram"></a>
+                        <a href="https://facebook.com" target="_blank"><img src="../static/img/fb.png" alt="Facebook"></a>
+                        <a href="https://youtube.com" target="_blank"><img src="../static/img/yt.png" alt="Youtube"></a>
+                        <a href="https://x.com" target="_blank"><img src="../static/img/twitter.png" alt="Twitter"></a>
+                    </div>
+                </div>
+                <div>
+                    <p>© 2025 VetAlfa. Todos os direitos reservados. A reprodução, distribuição ou<br> modificação não autorizada de qualquer conteúdo deste site é estritamente<br> proibida. Desenvolvido por Prontezza.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

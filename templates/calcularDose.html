@@ -1,0 +1,24 @@
+{% extends 'template.html' %}
+
+{% block title %}Calcular Dose de Medicamento{% endblock %}
+
+{% block content %}
+<div class="container d-flex align" style="height: 600px;">
+     <section class="container">
+        <h2 class="titulo">Calcular Dose de <br>
+            Medicamento (mg/kg)</h2>
+         <p> Calcule a dose de medicamento para seu pet</p>
+     </section>
+
+    <section class="container formulario section-padding" style="width: 50%;">
+        <form method="POST"  class="d-flex column" action="">
+            <input class="input" placeholder="Dose recomendada (mg/kg):" step="0.1" name="dose" required>
+
+            <button type="submit" style="color: var(--cor-branco);" class="btn btn-primary bottom-border">Calcular dose</button>
+            <a class="btn btn-negativo " style="color: var(--cor-branco);" href="/dashboard">Cancelar</a>
+        </form>
+    </section>
+</div>
+
+{% endblock %}
+

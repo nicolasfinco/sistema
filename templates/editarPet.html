@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+
+{% block title %}Editar {{ pet.nome }}{% endblock %}
+
+{% block content %}
+<div class="container d-flex align" style="min-height: 600px;">
+    <section class="container">
+        <h2 class="titulo">Editar {{ pet.nome }}</h2>
+        <p>Atualize as informações do pet.</p>
+    </section>
+
+    <section class="container formulario section-padding">
+        <form class="d-flex column" method="POST">
+
+            <label>Nome</label>
+            <input type="text" name="nome" value="{{ pet.nome }}" required>
+
+            <label>Tutor responsável</label>
+            <select name="tutor" required>
+                {% for tutor in tutores %}
+                <option value="{{ tutor[0] }}"
+                    {% if tutor[0] == pet.tutor_id %}selected{% endif %}>
+                    {{ tutor[1] }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Espécie</label>
+            <select name="especie" required>
+                {% for especie in especies %}
+                <option value="{{ especie }}"
+                    {% if especie == pet.especie %}selected{% endif %}>
+                    {{ especie }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Raça</label>
+            <input type="text" name="raca" value="{{ pet.raca }}" required>
+
+            <label>Sexo</label>
+            <select name="sexo" required>
+                <option value="MACHO" {% if pet.sexo == 'MACHO' %}selected{% endif %}>Macho</option>
+                <option value="FEMEA" {% if pet.sexo == 'FEMEA' %}selected{% endif %}>Fêmea</option>
+            </select>
+
+            <label>Data de nascimento</label>
+            <input type="date" name="data_nascimento"
+                   value="{{ pet.data_nascimento }}" required>
+
+            <label>Observações</label>
+            <textarea name="observacoes">{{ pet.observacoes }}</textarea>
+
+            <button class="btn btn-primary" type="submit">
+                Salvar alterações
+            </button>
+
+            <a class="btn btn-negativo" href="{{ url_for('dashboard') }}">
+                Cancelar
+            </a>
+        </form>
+    </section>
+</div>
+{% endblock %}
